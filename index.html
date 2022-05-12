@@ -66,12 +66,21 @@
     <div class="todo">
       <h2>To Do List</h2>
 
-      <input type="text" id="text-todo" />
-      <button onclick="alert('Added')">Add to do</button>
+      <input type="text" id="text-todo" placeholder="Item...." />
+      <button onclick="newItem()">Add</button>
 
-      <ol>
+      <ul id="list">
         <li>To Be Determined</li>
       </ul>
     </div>
   </body>
 </html>
+
+<script>
+  function newItem() {
+    var el = document.createElement("li");
+    var val = document.getElementById("text-todo").value;
+    el.innerHTML = val;
+    document.getElementById("list").append(el);
+  }
+</script>
