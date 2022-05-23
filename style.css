@@ -1,93 +1,127 @@
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-ul {list-style-type: none;}
-body {font-family: Verdana, sans-serif;}
 
-.calender{
-  width: auto;
-  align-items: center;
-  text-align: center;
+/* Calender */
+body{
+  background-color: #e2ccc7;
 }
-.todo{
-  text-align: center;
+button {
+  width: 75px;
+  cursor: pointer;
+  box-shadow: 0px 0px 2px gray;
+  border: none;
+  outline: none;
+  padding: 5px;
+  border-radius: 5px;
+  color: #585454;
+}
 
+#header {
+  padding: 10px;
+  color: #585454;
+  font-size: 26px;
+  font-family: sans-serif;
+  display: flex;
+  justify-content: space-between;
 }
-.month {
-  padding: 25px 25px;
+#header button {
+  background-color:#e4d4d4;
+}
+#container {
+  width: 770px;
+}
+#weekdays {
   width: 100%;
-  background: #B6A39E;
-  text-align: center;
+  display: flex;
+  color: #585454;
+}
+#weekdays div {
+  width: 100px;
+  padding: 10px;
+}
+#calendar {
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+.day {
+  width: 100px;
+  padding: 10px;
+  height: 100px;
+  cursor: pointer;
+  box-sizing: border-box;
+  background-color: #f5f5f5;
+  margin: 5px;
+  box-shadow: 0px 0px 3px #CBD4C2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.day:hover {
+  background-color: #e8faed;
 }
 
-/* Month list */
-.month ul {
-  margin: 10;
-  padding: 10;
+.day + #currentDay {
+  background-color:#e8f4fa;
 }
-
-.month ul li {
-  color: white;
-  font-size: 28px;
-  text-transform: uppercase;
+.event {
+  font-size: 13px;
+  padding: 3px;
+  background-color: #e2ccc7;
+  color: #585454;
+  border-radius: 5px;
+  max-height: 55px;
+  overflow: hidden;
 }
-
-/* Previous button inside month header */
-.month .prev {
-  float: left;
-  padding-top: 10px;
+.padding {
+  cursor: default !important;
+  background-color: #FFFCFF !important;
+  box-shadow: none !important;
 }
-
-/* Next button */
-.month .next {
-  float: right;
-  padding-top: 10px;
+#newEventModal, #deleteEventModal {
+  display: none;
+  z-index: 20;
+  padding: 25px;
+  background-color: #e8f4fa;
+  box-shadow: 0px 0px 3px black;
+  border-radius: 5px;
+  width: 350px;
+  top: 100px;
+  left: calc(50% - 175px);
+  position: absolute;
+  font-family: sans-serif;
 }
-
-/* Weekdays (Mon-Sun) */
-.weekdays {
-  margin: 0;
-  padding: 10px 0;
-  background-color:#ddd;
+#eventTitleInput {
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 25px;
+  border-radius: 3px;
+  outline: none;
+  border: none;
+  box-shadow: 0px 0px 3px gray;
 }
-
-.weekdays li {
-  display: inline-block;
-  width: 13.6%;
-  color: #666;
-  text-align: center;
+#eventTitleInput.error {
+  border: 2px solid red;
 }
-
-/* Days (1-31) */
-.days {
-  padding: 10px 0;
-  background: #eee;
-  margin: 0;
-  
+#cancelButton, #deleteButton {
+  background-color: #d36c6c;
 }
-.days li:hover{
-  background: #B6A39E;
-  
-  color: white !important
+#saveButton, #closeButton {
+  background-color: #92a1d1;
 }
-
-.days li {
-  list-style-type: none;
-  display: inline-block;
-  width: 13.6%;
-  text-align: center;
-  margin-bottom: 15px;
-  font-size:16px;
-  color: #777;
-  
+#completeButton {
+  background-color:  #C1E1C1;
 }
-
-/* Highlight today*/
-.days li .active {
-  /* padding: 5px; */
-  background: #B6A39E;
-  
-  color: white !important
+#eventText {
+  font-size: 14px;
+}
+#modalBackDrop {
+  display: none;
+  top: 0px;
+  left: 0px;
+  z-index: 10;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  background-color: rgba(0,0,0,0.8);
 }
